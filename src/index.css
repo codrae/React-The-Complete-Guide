@@ -11,6 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: radial-gradient(#303b37, #1a1f1d);
   color: #e1eeeb;
+  align-content: center;
   min-height: 100vh;
 }
 
@@ -89,5 +90,5 @@ body {
 }
 
 p{
-  width: 150px;
+  width: 400px;
 }

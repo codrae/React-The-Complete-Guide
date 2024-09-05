@@ -12,11 +12,13 @@ function App() {
     duration: 10,
   });
 
+  const inputIsValid = userInput.duration >= 1;
+
   function handleChange(inputIdentifier, newValue) {
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [inputIdentifier]: newValue,
+        [inputIdentifier]: +newValue,
       };
     });
   }
@@ -26,7 +28,10 @@ function App() {
       <Header />
       <UserInput userInput={userInput} onChangeInput={handleChange} />
       {/* Results go hers, 그렇기에 계산을 여기서 수행 */}
-      <Results input={userInput} />
+      {!inputIsValid && (
+        <p className="center">Please enter a duration greater than zero. </p>
+      )}
+      {inputIsValid && <Results input={userInput} />}
       {/*userInput을 두 컴포넌트가 공유*/}
     </>
   );
